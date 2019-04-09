@@ -1,0 +1,62 @@
+﻿Build started 4/9/2019 9:13:02 AM.
+     1>Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\ref_soft\ref_soft.vcxproj" on node 6 (Build target(s)).
+     1>CustomBuild:
+         Performing Custom Build Tools
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+          Assembling: C:\Users\OmegaGomachi\Downloads\project
+     1>MASM : fatal error A1000: cannot open file : C:\Users\OmegaGomachi\Downloads\project
+         Performing Custom Build Tools
+          Assembling: C:\Users\OmegaGomachi\Downloads\project
+     1>MASM : fatal error A1000: cannot open file : C:\Users\OmegaGomachi\Downloads\project
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         Performing Custom Build Tools
+          Assembling: C:\Users\OmegaGomachi\Downloads\project
+     1>MASM : fatal error A1000: cannot open file : C:\Users\OmegaGomachi\Downloads\project
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         Performing Custom Build Tools
+          Assembling: C:\Users\OmegaGomachi\Downloads\project
+     1>MASM : fatal error A1000: cannot open file : C:\Users\OmegaGomachi\Downloads\project
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         Performing Custom Build Tools
+          Assembling: C:\Users\OmegaGomachi\Downloads\project
+     1>MASM : fatal error A1000: cannot open file : C:\Users\OmegaGomachi\Downloads\project
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         Performing Custom Build Tools
+          Assembling: C:\Users\OmegaGomachi\Downloads\project
+     1>MASM : fatal error A1000: cannot open file : C:\Users\OmegaGomachi\Downloads\project
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         Performing Custom Build Tools
+          Assembling: C:\Users\OmegaGomachi\Downloads\project
+     1>MASM : fatal error A1000: cannot open file : C:\Users\OmegaGomachi\Downloads\project
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         Performing Custom Build Tools
+          Assembling: C:\Users\OmegaGomachi\Downloads\project
+     1>MASM : fatal error A1000: cannot open file : C:\Users\OmegaGomachi\Downloads\project
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         Performing Custom Build Tools
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+          Assembling: C:\Users\OmegaGomachi\Downloads\project
+     1>MASM : fatal error A1000: cannot open file : C:\Users\OmegaGomachi\Downloads\project
+     1>Done Building Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\ref_soft\ref_soft.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.31
