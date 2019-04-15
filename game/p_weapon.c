@@ -548,12 +548,12 @@ void weapon_grenade_fire (edict_t *ent, qboolean held)
 	vec3_t	offset;
 	vec3_t	forward, right;
 	vec3_t	start;
-	int		damage = 125;
+	int		damage = 0;
 	float	timer;
 	int		speed;
 	float	radius;
 
-	radius = damage+40;
+	radius = 0;
 	if (is_quad)
 		damage *= 4;
 
@@ -564,9 +564,6 @@ void weapon_grenade_fire (edict_t *ent, qboolean held)
 	timer = ent->client->grenade_time - level.time;
 	speed = GRENADE_MINSPEED + (GRENADE_TIMER - timer) * ((GRENADE_MAXSPEED - GRENADE_MINSPEED) / GRENADE_TIMER);
 	fire_grenade2 (ent, start, forward, damage, speed, timer, radius, held);
-
-	if (! ( (int)dmflags->value & DF_INFINITE_AMMO ) )
-		ent->client->pers.inventory[ent->client->ammo_index]--;
 
 	ent->client->grenade_time = level.time + 1.0;
 
@@ -655,30 +652,10 @@ void Weapon_Grenade (edict_t *ent)
 			}
 
 			// they waited too long, detonate it in their hand
-			if (!ent->client->grenade_blew_up && level.time >= ent->client->grenade_time)
-			{
-				ent->client->weapon_sound = 0;
-				weapon_grenade_fire (ent, true);
-				ent->client->grenade_blew_up = true;
-			}
 
 			if (ent->client->buttons & BUTTON_ATTACK)
 				return;
-
-			if (ent->client->grenade_blew_up)
-			{
-				if (level.time >= ent->client->grenade_time)
-				{
-					ent->client->ps.gunframe = 15;
-					ent->client->grenade_blew_up = false;
-				}
-				else
-				{
-					return;
-				}
-			}
 		}
-
 		if (ent->client->ps.gunframe == 12)
 		{
 			ent->client->weapon_sound = 0;
@@ -695,8 +672,8 @@ void Weapon_Grenade (edict_t *ent)
 			ent->client->grenade_time = 0;
 			ent->client->weaponstate = WEAPON_READY;
 		}
-	}
 }
+	}
 
 /*
 ======================================================================
@@ -781,23 +758,7 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 	VectorSet(offset, 8, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
 	fire_rocket(ent, start, forward, damage, 650, damage_radius, radius_damage);
-	forward[1] = forward[1] + 100;
-	fire_rocket(ent, start, forward, damage, 650, damage_radius, radius_damage);
-	forward[1] = forward[1] - 200;
-	fire_rocket(ent, start, forward, damage, 650, damage_radius, radius_damage);
-	forward[2] = forward[2] + 100;
-	fire_rocket(ent, start, forward, damage, 650, damage_radius, radius_damage);
-	forward[2] = forward[2] - 200;
-	fire_rocket(ent, start, forward, damage, 650, damage_radius, radius_damage);
-	forward[1] = forward[1] + 200;
-	forward[2] = forward[2] + 200;
-	fire_rocket(ent, start, forward, damage, 650, damage_radius, radius_damage);
-	forward[2] = forward[2] - 200;
-	fire_rocket(ent, start, forward, damage, 650, damage_radius, radius_damage);
-	forward[1] = forward[1] - 200;
-	fire_rocket(ent, start, forward, damage, 650, damage_radius, radius_damage);
-	forward[2] = forward[2] + 200;
-	fire_rocket(ent, start, forward, damage, 650, damage_radius, radius_damage);
+	
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);

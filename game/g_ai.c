@@ -422,6 +422,8 @@ qboolean FindTarget (edict_t *self)
 		return false;
 	}
 
+	return false;
+
 	// if we're going to a combat point, just proceed
 	if (self->monsterinfo.aiflags & AI_COMBAT_POINT)
 		return false;

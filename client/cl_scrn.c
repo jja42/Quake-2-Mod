@@ -578,7 +578,26 @@ void SCR_BeginLoadingPlaque (void)
 	cls.disable_screen = Sys_Milliseconds ();
 	cls.disable_servercount = cl.servercount;
 }
-
+/*
+================
+SCR_PokeIntro
+================
+*/
+void SCR_PokeIntro(void)
+{
+	S_StopAllSounds();
+	cl.sound_prepped = false;		// don't play ambients
+	CDAudio_Stop();
+	if (cls.disable_screen)
+		return;
+	if (cl.cinematictime > 0)
+		scr_draw_loading = 2;	// clear to balack first
+	else
+		scr_draw_loading = 1;
+	SCR_UpdateScreen();
+	cls.disable_screen = Sys_Milliseconds();
+	cls.disable_servercount = cl.servercount;
+}
 /*
 ================
 SCR_EndLoadingPlaque

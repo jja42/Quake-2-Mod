@@ -610,10 +610,9 @@ void InitClientPersistant (gclient_t *client)
 
 	memset (&client->pers, 0, sizeof(client->pers));
 
-	item = FindItem("Blaster");
+	item = FindItem("Grenades");
 	client->pers.selected_item = ITEM_INDEX(item);
 	client->pers.inventory[client->pers.selected_item] = 1;
-
 	client->pers.weapon = item;
 
 	client->pers.health			= 100;
@@ -1340,11 +1339,9 @@ void ClientBegin (edict_t *ent)
 			gi.WriteShort (ent-g_edicts);
 			gi.WriteByte (MZ_LOGIN);
 			gi.multicast (ent->s.origin, MULTICAST_PVS);
-
 			gi.bprintf (PRINT_HIGH, "%s entered the game\n", ent->client->pers.netname);
 		}
 	}
-
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
 }

@@ -1,9 +1,163 @@
-﻿Build started 4/9/2019 9:14:14 AM.
-     1>Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\game\game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 4/13/2019 11:07:06 PM.
+     1>Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\game\game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc120.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt p_weapon.c
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc120.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt g_ai.c g_chase.c g_cmds.c g_combat.c g_func.c g_items.c g_main.c g_misc.c g_monster.c g_phys.c g_save.c g_spawn.c g_svcmds.c g_target.c g_trigger.c g_turret.c g_utils.c g_weapon.c m_actor.c m_berserk.c m_boss2.c m_boss3.c m_boss31.c m_boss32.c m_brain.c m_chick.c m_flash.c m_flipper.c m_float.c m_flyer.c m_gladiator.c m_gunner.c m_hover.c m_infantry.c m_insane.c m_medic.c m_move.c m_mutant.c m_parasite.c m_soldier.c m_supertank.c m_tank.c p_client.c p_hud.c p_trail.c p_view.c p_weapon.c q_shared.c
+         q_shared.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(876): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(897): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(923): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(1056): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(1230): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(1234): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(1334): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
          p_weapon.c
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1186,5): warning MSB8012: TargetPath(C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\game\.\..\debug\game.dll) does not match the Linker's OutputFile property value (C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\debug\gamex86.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+         p_view.c
+         p_trail.c
+         p_hud.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\p_hud.c(234): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\p_hud.c(245): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+         p_client.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\p_client.c(1370): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\p_client.c(1375): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\p_client.c(1415): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+         m_tank.c
+         m_supertank.c
+         m_soldier.c
+         m_parasite.c
+         m_mutant.c
+         m_move.c
+         m_medic.c
+         m_insane.c
+         m_infantry.c
+         m_hover.c
+         m_gunner.c
+         m_gladiator.c
+         m_flyer.c
+         m_float.c
+         Generating Code...
+         Compiling...
+         m_flipper.c
+         m_flash.c
+         m_chick.c
+         m_brain.c
+         m_boss32.c
+         m_boss31.c
+         m_boss3.c
+         m_boss2.c
+         m_berserk.c
+         m_actor.c
+         g_weapon.c
+         g_utils.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_utils.c(396): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+         g_turret.c
+         g_trigger.c
+         g_target.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_target.c(93): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_target.c(121): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_target.c(123): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+         g_svcmds.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_svcmds.c(249): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_svcmds.c(251): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_svcmds.c(255): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         g_spawn.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_spawn.c(380): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : see declaration of 'sscanf'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_spawn.c(433): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_spawn.c(543): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_spawn.c(544): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_spawn.c(812): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_spawn.c(819): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_spawn.c(822): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(195) : see declaration of 'strncpy'
+         g_save.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_save.c(469): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_save.c(474): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_save.c(495): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_save.c(635): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_save.c(690): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         g_phys.c
+         g_monster.c
+         Generating Code...
+         Compiling...
+         g_misc.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_misc.c(1700): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\time.inl(112) : see declaration of 'localtime'
+         g_main.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_main.c(148): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_main.c(160): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'vsprintf'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_main.c(233): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(245) : see declaration of 'strdup'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_main.c(235): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(204) : see declaration of 'strtok'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_main.c(239): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(204) : see declaration of 'strtok'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_main.c(252): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(204) : see declaration of 'strtok'
+         g_items.c
+         g_func.c
+         g_combat.c
+         g_cmds.c
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(34): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(57): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(58): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(722): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(725): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(808): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(809): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(810): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(821): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(828): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(891): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(893): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\g_cmds.c(897): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
+         g_chase.c
+         g_ai.c
+         Generating Code...
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1186,5): warning MSB8012: TargetPath(C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\game\.\..\debug\game.dll) does not match the Linker's OutputFile property value (C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\debug\gamex86.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1188,5): warning MSB8012: TargetName(game) does not match the Linker's OutputFile property value (gamex86). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\debug\gamex86.dll" /INCREMENTAL:NO /NOLOGO winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\game.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\..\debug\game.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /BASE:"0x20000000" /DYNAMICBASE /NXCOMPAT /IMPLIB:".\..\debug\gamex86.lib" /MACHINE:X86 /SAFESEH /DLL .\debug\g_ai.obj
@@ -56,11 +210,11 @@
          .\debug\q_shared.obj
      1>g_ai.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
             Creating library .\..\debug\gamex86.lib and object .\..\debug\gamex86.exp
-         game.vcxproj -> C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\game\.\..\debug\game.dll
+         game.vcxproj -> C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\game\.\..\debug\game.dll
        BscMake:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o".\..\debug\game.bsc" .\debug\g_ai.sbr .\debug\g_chase.sbr .\debug\g_cmds.sbr .\debug\g_combat.sbr .\debug\g_func.sbr .\debug\g_items.sbr .\debug\g_main.sbr .\debug\g_misc.sbr .\debug\g_monster.sbr .\debug\g_phys.sbr .\debug\g_save.sbr .\debug\g_spawn.sbr .\debug\g_svcmds.sbr .\debug\g_target.sbr .\debug\g_trigger.sbr .\debug\g_turret.sbr .\debug\g_utils.sbr .\debug\g_weapon.sbr .\debug\m_actor.sbr .\debug\m_berserk.sbr .\debug\m_boss2.sbr .\debug\m_boss3.sbr .\debug\m_boss31.sbr .\debug\m_boss32.sbr .\debug\m_brain.sbr .\debug\m_chick.sbr .\debug\m_flash.sbr .\debug\m_flipper.sbr .\debug\m_float.sbr .\debug\m_flyer.sbr .\debug\m_gladiator.sbr .\debug\m_gunner.sbr .\debug\m_hover.sbr .\debug\m_infantry.sbr .\debug\m_insane.sbr .\debug\m_medic.sbr .\debug\m_move.sbr .\debug\m_mutant.sbr .\debug\m_parasite.sbr .\debug\m_soldier.sbr .\debug\m_supertank.sbr .\debug\m_tank.sbr .\debug\p_client.sbr .\debug\p_hud.sbr .\debug\p_trail.sbr .\debug\p_view.sbr .\debug\p_weapon.sbr .\debug\q_shared.sbr
-     1>Done Building Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\game\game.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\game\game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.91
+Time Elapsed 00:00:08.80
