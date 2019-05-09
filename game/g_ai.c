@@ -353,7 +353,7 @@ void FoundTarget (edict_t *self)
 		level.sight_entity_framenum = level.framenum;
 		level.sight_entity->light_level = 128;
 	}
-
+	if (!self->monsterinfo.aiflags & AI_GOOD_GUY)
 	self->show_hostile = level.time + 1;		// wake up other monsters
 
 	VectorCopy(self->enemy->s.origin, self->monsterinfo.last_sighting);
@@ -417,12 +417,34 @@ qboolean FindTarget (edict_t *self)
 			if (strcmp(self->goalentity->classname, "target_actor") == 0)
 				return false;
 		}
-
-		//FIXME look for monsters?
-		return false;
+		if (self->monsterinfo.aiflags & AI_COMBAT_POINT)
+			return false;
+		if ((level.sight_entity_framenum >= (level.framenum - 1)))
+		{
+			client = level.sight_entity;
+			if (client->svflags & SVF_MONSTER)
+			{	
+				self->enemy = client;
+			}
+		}
+		else if (level.sound_entity_framenum >= (level.framenum - 1))
+		{
+			client = level.sound_entity;
+			if (client->svflags & SVF_MONSTER)
+			{
+				self->enemy = client;
+			}
+		}
+		else
+		{
+			client = level.sight_entity;
+			if (!client)
+				return false;	// no clients to get mad at
+		}
+		if (client == self->enemy)
+			return true;	// JDC false;
+		FoundTarget(self);
 	}
-
-	return false;
 
 	// if we're going to a combat point, just proceed
 	if (self->monsterinfo.aiflags & AI_COMBAT_POINT)
@@ -552,7 +574,7 @@ qboolean FindTarget (edict_t *self)
 			if (!gi.inPHS(self->s.origin, client->s.origin))
 				return false;
 		}
-
+		
 		VectorSubtract (client->s.origin, self->s.origin, temp);
 
 		if (VectorLength(temp) > 1000)	// too far to hear
