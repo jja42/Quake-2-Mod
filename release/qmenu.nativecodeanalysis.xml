@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DEFECTS><DEFECT><SFA><FILEPATH>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\</FILEPATH><FILENAME>qmenu.c</FILENAME><LINE>204</LINE><COLUMN>9</COLUMN></SFA><DEFECTCODE>6031</DEFECTCODE><DESCRIPTION>Return value ignored: 'strtok'.</DESCRIPTION><FUNCTION>Field_Key</FUNCTION><DECORATED>Field_Key</DECORATED><FUNCLINE>134</FUNCLINE><PATH/></DEFECT></DEFECTS>

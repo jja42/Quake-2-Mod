@@ -1,7 +1,7 @@
-﻿Build started 4/14/2019 11:51:50 PM.
-     1>Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2.vcxproj" on node 2 (Build target(s)).
+﻿Build started 5/14/2019 1:55:55 PM.
+     1>Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Z7 /nologo /W4 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\release\\" /Fd".\release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt win32\cd_win.c client\cl_cin.c client\cl_ents.c client\cl_fx.c client\cl_input.c client\cl_inv.c client\cl_main.c client\cl_newfx.c client\cl_parse.c client\cl_pred.c client\cl_scrn.c client\cl_tent.c client\cl_view.c qcommon\cmd.c qcommon\cmodel.c qcommon\common.c win32\conproc.c client\console.c qcommon\crc.c qcommon\cvar.c qcommon\files.c win32\in_win.c client\keys.c game\m_flash.c qcommon\md4.c client\menu.c qcommon\net_chan.c win32\net_wins.c qcommon\pmove.c game\q_shared.c win32\q_shwin.c client\qmenu.c client\snd_dma.c client\snd_mem.c client\snd_mix.c win32\snd_win.c server\sv_ccmds.c server\sv_ents.c server\sv_game.c server\sv_init.c server\sv_main.c server\sv_send.c server\sv_user.c server\sv_world.c win32\sys_win.c win32\vid_dll.c win32\vid_menu.c client\x86.c
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Z7 /nologo /W4 /WX- /O2 /Oy- /D CODE_ANALYSIS /D WIN32 /D NDEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\release\\" /Fd".\release\vc120.pdb" /Gd /TC /analyze /analyze:plugin"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\\bin\localespc.dll" /errorReport:prompt   /analyze:quiet win32\cd_win.c client\cl_cin.c client\cl_ents.c client\cl_fx.c client\cl_input.c client\cl_inv.c client\cl_main.c client\cl_newfx.c client\cl_parse.c client\cl_pred.c client\cl_scrn.c client\cl_tent.c client\cl_view.c qcommon\cmd.c qcommon\cmodel.c qcommon\common.c win32\conproc.c client\console.c qcommon\crc.c qcommon\cvar.c qcommon\files.c win32\in_win.c client\keys.c game\m_flash.c qcommon\md4.c client\menu.c qcommon\net_chan.c win32\net_wins.c qcommon\pmove.c game\q_shared.c win32\q_shwin.c client\qmenu.c client\snd_dma.c client\snd_mem.c client\snd_mix.c win32\snd_win.c server\sv_ccmds.c server\sv_ents.c server\sv_game.c server\sv_init.c server\sv_main.c server\sv_send.c server\sv_user.c server\sv_world.c win32\sys_win.c win32\vid_dll.c win32\vid_menu.c client\x86.c
          cd_win.c
      1>win32\cd_win.c(377): warning C4389: '!=' : signed/unsigned mismatch
      1>win32\cd_win.c(375): warning C4100: 'uMsg' : unreferenced formal parameter
@@ -176,25 +176,26 @@
          cvar.c
      1>qcommon\cvar.c(435): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : see declaration of 'fopen'
+         Running Code Analysis for C/C++...
          Generating Code...
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\console.c(370): warning C4706: assignment within conditional expression
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(53): warning C4706: assignment within conditional expression
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(62): warning C4706: assignment within conditional expression
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(202): warning C4706: assignment within conditional expression
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(222): warning C4706: assignment within conditional expression
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(449): warning C4706: assignment within conditional expression
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(458): warning C4706: assignment within conditional expression
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_ents.c(494): warning C4701: potentially uninitialized local variable 'oldstate' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_ents.c(494): warning C4703: potentially uninitialized local pointer variable 'oldstate' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_fx.c(2228): warning C4701: potentially uninitialized local variable 'time' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_input.c(479): warning C4700: uninitialized local variable 'buf' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_tent.c(1565): warning C4701: potentially uninitialized local variable 'framenum' used
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\conproc.c(116): warning C4701: potentially uninitialized local variable 'hFile' used
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\conproc.c(116): warning C4703: potentially uninitialized local pointer variable 'hFile' used
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\conproc.c(116): warning C4701: potentially uninitialized local variable 'heventParent' used
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\conproc.c(116): warning C4703: potentially uninitialized local pointer variable 'heventParent' used
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\conproc.c(116): warning C4701: potentially uninitialized local variable 'heventChild' used
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\conproc.c(116): warning C4703: potentially uninitialized local pointer variable 'heventChild' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_tent.c(1565): warning C4701: potentially uninitialized local variable 'framenum' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_input.c(479): warning C4700: uninitialized local variable 'buf' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_fx.c(2228): warning C4701: potentially uninitialized local variable 'time' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_ents.c(494): warning C4701: potentially uninitialized local variable 'oldstate' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_ents.c(494): warning C4703: potentially uninitialized local pointer variable 'oldstate' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(53): warning C4706: assignment within conditional expression
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(62): warning C4706: assignment within conditional expression
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(222): warning C4706: assignment within conditional expression
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(202): warning C4706: assignment within conditional expression
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(449): warning C4706: assignment within conditional expression
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\cd_win.c(458): warning C4706: assignment within conditional expression
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\console.c(370): warning C4706: assignment within conditional expression
          Compiling...
          files.c
      1>qcommon\files.c(222): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -470,20 +471,21 @@
      1>server\sv_init.c(406): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
      1>server\sv_init.c(427): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
      1>server\sv_init.c(434): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         Running Code Analysis for C/C++...
          Generating Code...
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_game.c(102): warning C4701: potentially uninitialized local variable 'n' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(171): warning C4701: potentially uninitialized local variable 'newent' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(171): warning C4703: potentially uninitialized local pointer variable 'newent' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(171): warning C4701: potentially uninitialized local variable 'oldent' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(171): warning C4703: potentially uninitialized local pointer variable 'oldent' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\snd_win.c(692): warning C4701: potentially uninitialized local variable 's' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\in_win.c(520): warning C4701: potentially uninitialized local variable 'mmr' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\in_win.c(574): warning C4715: 'RawValuePointer' : not all control paths return a value
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\menu.c(3580): warning C4715: 'PlayerConfig_ScanDirectories' : not all control paths return a value
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(154): warning C4715: 'NET_CompareBaseAdr' : not all control paths return a value
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(124): warning C4715: 'NET_CompareAdr' : not all control paths return a value
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(235): warning C4706: assignment within conditional expression
      1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(427): warning C4701: potentially uninitialized local variable 'net_socket' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\menu.c(3580): warning C4715: 'PlayerConfig_ScanDirectories' : not all control paths return a value
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\in_win.c(520): warning C4701: potentially uninitialized local variable 'mmr' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\in_win.c(574): warning C4715: 'RawValuePointer' : not all control paths return a value
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\snd_win.c(692): warning C4701: potentially uninitialized local variable 's' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(171): warning C4701: potentially uninitialized local variable 'newent' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(171): warning C4703: potentially uninitialized local pointer variable 'newent' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(171): warning C4701: potentially uninitialized local variable 'oldent' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(171): warning C4703: potentially uninitialized local pointer variable 'oldent' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_game.c(102): warning C4701: potentially uninitialized local variable 'n' used
          Compiling...
          sv_main.c
      1>server\sv_main.c(118): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -568,6 +570,7 @@
      1>win32\vid_menu.c(201): warning C4210: nonstandard extension used : function given file scope
      1>win32\vid_menu.c(199): warning C4100: 'unused' : unreferenced formal parameter
          x86.c
+         Running Code Analysis for C/C++...
          Generating Code...
        ResourceCompile:
          C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D NDEBUG /D _VC80_UPGRADE=0x0600 /l"0x0409" /Iwin32 /nologo /fo".\release\q2.res" win32\q2.rc 
@@ -622,8 +625,89 @@
          .\release\vid_menu.obj
          .\release\x86.obj
          quake2.vcxproj -> C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\.\release\quake2.exe
-     1>Done Building Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2.vcxproj" (Build target(s)).
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_cin.c(427): warning C6262: Function uses '137416' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_fx.c(445): warning C6385: Reading invalid data from 'cl_entities':  the readable size is '282624' bytes, but 'ent' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_fx.c(905): warning C6386: Buffer overrun while writing to 'particles':  the writable size is '245760' bytes, but '-60' bytes might be written.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_fx.c(2228): warning C6001: Using uninitialized memory 'time'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_input.c(479): warning C6001: Using uninitialized memory 'buf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_main.c(322): warning C6031: Return value ignored: 'putenv'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_main.c(1064): warning C6053: The prior call to 'strncpy' might not zero-terminate string 'sk'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_parse.c(330): warning C6011: Dereferencing NULL pointer 'fs_gamedirvar->string'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_parse.c(528): warning C6385: Reading invalid data from 'cl.configstrings':  the readable size is '133120' bytes, but 'i' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_scrn.c(1192): warning C6385: Reading invalid data from 'cl.frame.playerstate.stats':  the readable size is '64' bytes, but 'index' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_scrn.c(1195): warning C6385: Reading invalid data from 'cl.configstrings':  the readable size is '133120' bytes, but 'index' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\cl_view.c(339): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\cmodel.c(514): warning C6386: Buffer overrun while writing to 'map_visibility':  the writable size is '1048576' bytes, but '1048577' bytes might be written.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\cmodel.c(536): warning C6386: Buffer overrun while writing to 'map_entitystring':  the writable size is '262144' bytes, but '262145' bytes might be written.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\cmodel.c(598): warning C6011: Dereferencing NULL pointer 'buf'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\cmodel.c(671): warning C6385: Reading invalid data from 'map_leafs':  the readable size is '1048576' bytes, but 'leafnum' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\cmodel.c(678): warning C6385: Reading invalid data from 'map_leafs':  the readable size is '1048576' bytes, but 'leafnum' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\cmodel.c(685): warning C6385: Reading invalid data from 'map_leafs':  the readable size is '1048576' bytes, but 'leafnum' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\common.c(462): warning C6385: Reading invalid data from 'bytedirs':  the readable size is '1944' bytes, but 'b' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\common.c(1171): warning C6387: 'z' could be '0':  this does not adhere to the specification for the function 'memset'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\common.c(1174): warning C6011: Dereferencing NULL pointer 'z'. See line 1171 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\conproc.c(116): warning C6001: Using uninitialized memory 'hFile'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\console.c(180): warning C6386: Buffer overrun while writing to 'buffer':  the writable size is '1024' bytes, but 'con.linewidth' bytes might be written.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\console.c(245): warning C6262: Function uses '32796' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\files.c(448): warning C6262: Function uses '262184' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\files.c(709): warning C6387: 'list' could be '0':  this does not adhere to the specification for the function 'memset'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\qcommon\files.c(717): warning C6011: Dereferencing NULL pointer 'list'. See line 709 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\in_win.c(520): warning C6001: Using uninitialized memory 'mmr'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\keys.c(252): warning C6031: Return value ignored: 'strtok'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\keys.c(343): warning C6385: Reading invalid data from 'key_lines':  the readable size is '8192' bytes, but 'edit_line' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\menu.c(134): warning C6385: Reading invalid data from 'm_layers':  the readable size is '64' bytes, but '-8' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\menu.c(3528): warning C6387: 'skinnames' could be '0':  this does not adhere to the specification for the function 'memset'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\menu.c(3552): warning C6011: Dereferencing NULL pointer 'skinnames'. See line 3528 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(201): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(202): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(203): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(204): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(205): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(206): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(207): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(208): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(209): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(210): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(211): warning C6031: Return value ignored: 'sscanf'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\net_wins.c(427): warning C6001: Using uninitialized memory 'net_socket'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(760): warning C28251: Inconsistent annotation for 'sqrt': this instance has no annotations. See <no file>(0). 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(1223): warning C6262: Function uses '65556' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\q_shwin.c(137): warning C6031: Return value ignored: '_mkdir'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\qmenu.c(204): warning C6031: Return value ignored: 'strtok'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\snd_dma.c(212): warning C6011: Dereferencing NULL pointer 'name'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\snd_dma.c(215): warning C6387: 'name' could be '0':  this does not adhere to the specification for the function 'strlen'. See line 212 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\snd_dma.c(220): warning C6387: 'name' could be '0':  this does not adhere to the specification for the function 'strcmp'. See line 212 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\snd_dma.c(243): warning C6387: 'name' could be '0':  this does not adhere to the specification for the function 'strcpy'. See line 212 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\snd_win.c(419): warning C6102: Using 'dscaps' from failed function call at line '414'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\snd_win.c(692): warning C6001: Using uninitialized memory 's'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\snd_win.c(722): warning C6102: Using 'dwStatus' from failed function call at line '719'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ccmds.c(192): warning C6262: Function uses '65556' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ccmds.c(445): warning C6054: String 'mapcmd' might not be zero-terminated.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ccmds.c(522): warning C6011: Dereferencing NULL pointer 'savedInuse'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ccmds.c(882): warning C6262: Function uses '32928' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(179): warning C6001: Using uninitialized memory 'newent'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(161): warning C28182: Dereferencing NULL pointer. 'svs.client_entities' contains the same NULL value as 'oldnum' did. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(654): warning C28182: Dereferencing NULL pointer. 'svs.client_entities' contains the same NULL value as 'ent->s.number' did. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_ents.c(680): warning C6262: Function uses '32888' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_game.c(176): warning C6011: Dereferencing NULL pointer 'name'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_game.c(201): warning C6385: Reading invalid data from 'sv.configstrings':  the readable size is '133120' bytes, but 'index' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_game.c(390): warning C6011: Dereferencing NULL pointer 'ge'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_main.c(124): warning C6011: Dereferencing NULL pointer 'svs.clients'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_main.c(771): warning C6031: Return value ignored: 'rand'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\server\sv_world.c(500): warning C6011: Dereferencing NULL pointer 'model'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\sys_win.c(122): warning C6102: Using 'lpMsgBuf' from failed function call at line '116'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\sys_win.c(234): warning C28159: Consider using 'IsWindows*' instead of 'GetVersionExA'. Reason: Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\sys_win.c(265): warning C6262: Function uses '20496' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\sys_win.c(286): warning C6102: Using 'numread' from failed function call at line '283'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\sys_win.c(289): warning C6102: Using 'recs' from failed function call at line '283'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\sys_win.c(502): warning C6031: Return value ignored: '_getcwd'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\sys_win.c(594): warning C28251: Inconsistent annotation for 'WinMain': this instance has no annotations. See c:\program files (x86)\windows kits\8.1\include\um\winbase.h(905). 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\vid_dll.c(597): warning C28182: Dereferencing NULL pointer. 'GetRefAPI' contains the same NULL value as 'GetRefAPI=(void *)GetProcAddress(reflib_library, "GetRefAPI")' did. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\vid_dll.c(740): warning C6031: Return value ignored: 'putenv'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\vid_menu.c(184): warning C6031: Return value ignored: 'putenv'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\vid_menu.c(186): warning C6031: Return value ignored: 'putenv'.
+     1>Done Building Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:07.16
+Time Elapsed 00:01:30.77

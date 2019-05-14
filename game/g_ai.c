@@ -409,40 +409,23 @@ qboolean FindTarget (edict_t *self)
 	edict_t		*client;
 	qboolean	heardit;
 	int			r;
+	char		*s;
 
 	if (self->monsterinfo.aiflags & AI_GOOD_GUY)
 	{
-		if (self->goalentity && self->goalentity->inuse && self->goalentity->classname)
-		{
-			if (strcmp(self->goalentity->classname, "target_actor") == 0)
-				return false;
-		}
-		if (self->monsterinfo.aiflags & AI_COMBAT_POINT)
+		client = level.sight_entity;
+		if (!client)
 			return false;
-		if ((level.sight_entity_framenum >= (level.framenum - 1)))
+		if (!(client->monsterinfo.aiflags & AI_GOOD_GUY))
 		{
-			client = level.sight_entity;
-			if (client->svflags & SVF_MONSTER)
-			{	
-				self->enemy = client;
-			}
+			gi.cprintf(self->owner, PRINT_HIGH, "ENEMY SEEN!", s);
+			if (client == self->enemy)
+			return true;
 		}
-		else if (level.sound_entity_framenum >= (level.framenum - 1))
-		{
-			client = level.sound_entity;
-			if (client->svflags & SVF_MONSTER)
-			{
-				self->enemy = client;
-			}
+		else{
+			return false;
 		}
-		else
-		{
-			client = level.sight_entity;
-			if (!client)
-				return false;	// no clients to get mad at
-		}
-		if (client == self->enemy)
-			return true;	// JDC false;
+		self->enemy = client;
 		FoundTarget(self);
 	}
 
@@ -457,7 +440,7 @@ qboolean FindTarget (edict_t *self)
 // revised behavior so they will wake up if they "see" a player make a noise
 // but not weapon impact/explosion noises
 
-	heardit = false;
+/*	heardit = false;
 	if ((level.sight_entity_framenum >= (level.framenum - 1)) && !(self->spawnflags & 1) )
 	{
 		client = level.sight_entity;
@@ -490,78 +473,31 @@ qboolean FindTarget (edict_t *self)
 	if (client == self->enemy)
 		return true;	// JDC false;
 
-	if (client->client)
+	if (client->monsterinfo.aiflags & AI_POKEMON){
+		self->enemy = client;
+	}
+	else if (client->client)
 	{
 		if (client->flags & FL_NOTARGET)
 			return false;
 	}
+
 	else if (client->svflags & SVF_MONSTER)
 	{
-		if (!client->enemy)
-			return false;
-		if (client->enemy->flags & FL_NOTARGET)
-			return false;
+			if (!client->enemy)
+				return false;
+			if (client->enemy->flags & FL_NOTARGET)
+				return false;
 	}
 	else if (heardit)
 	{
 		if (client->owner->flags & FL_NOTARGET)
 			return false;
 	}
-	else
+	else {
 		return false;
-
-	if (!heardit)
-	{
-		r = range (self, client);
-
-		if (r == RANGE_FAR)
-			return false;
-
-// this is where we would check invisibility
-
-		// is client in an spot too dark to be seen?
-		if (client->light_level <= 5)
-			return false;
-
-		if (!visible (self, client))
-		{
-			return false;
-		}
-
-		if (r == RANGE_NEAR)
-		{
-			if (client->show_hostile < level.time && !infront (self, client))
-			{
-				return false;
-			}
-		}
-		else if (r == RANGE_MID)
-		{
-			if (!infront (self, client))
-			{
-				return false;
-			}
-		}
-
-		self->enemy = client;
-
-		if (strcmp(self->enemy->classname, "player_noise") != 0)
-		{
-			self->monsterinfo.aiflags &= ~AI_SOUND_TARGET;
-
-			if (!self->enemy->client)
-			{
-				self->enemy = self->enemy->enemy;
-				if (!self->enemy->client)
-				{
-					self->enemy = NULL;
-					return false;
-				}
-			}
-		}
 	}
-	else	// heardit
-	{
+		
 		vec3_t	temp;
 
 		if (self->spawnflags & 1)
@@ -593,7 +529,6 @@ qboolean FindTarget (edict_t *self)
 		// hunt the sound for a bit; hopefully find the real player
 		self->monsterinfo.aiflags |= AI_SOUND_TARGET;
 		self->enemy = client;
-	}
 
 //
 // got one
@@ -602,7 +537,7 @@ qboolean FindTarget (edict_t *self)
 
 	if (!(self->monsterinfo.aiflags & AI_SOUND_TARGET) && (self->monsterinfo.sight))
 		self->monsterinfo.sight (self, self->enemy);
-
+*/
 	return true;
 }
 

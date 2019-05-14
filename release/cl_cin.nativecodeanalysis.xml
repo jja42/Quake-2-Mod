@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DEFECTS><DEFECT><SFA><FILEPATH>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\</FILEPATH><FILENAME>cl_cin.c</FILENAME><LINE>427</LINE><COLUMN>6</COLUMN></SFA><DEFECTCODE>6262</DEFECTCODE><DESCRIPTION>Function uses '137416' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.</DESCRIPTION><FUNCTION>SCR_ReadNextFrame</FUNCTION><DECORATED>SCR_ReadNextFrame</DECORATED><FUNCLINE>427</FUNCLINE><PATH/></DEFECT></DEFECTS>

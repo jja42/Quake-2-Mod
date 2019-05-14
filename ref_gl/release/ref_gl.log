@@ -1,7 +1,7 @@
-﻿Build started 4/9/2019 9:14:49 AM.
-     1>Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\ref_gl\ref_gl.vcxproj" on node 4 (Build target(s)).
+﻿Build started 5/14/2019 1:55:56 PM.
+     1>Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\ref_gl\ref_gl.vcxproj" on node 5 (Rebuild target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W4 /WX- /O2 /Oy- /D NDEBUG /D WIN32 /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _WINDLL /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\release\\" /Fd".\release\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt gl_draw.c gl_image.c gl_light.c gl_mesh.c gl_model.c gl_rmain.c gl_rmisc.c gl_rsurf.c gl_warp.c ..\win32\glw_imp.c ..\game\q_shared.c ..\win32\q_shwin.c ..\win32\qgl_win.c
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W4 /WX- /O2 /Oy- /D CODE_ANALYSIS /D NDEBUG /D WIN32 /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _WINDLL /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\release\\" /Fd".\release\vc120.pdb" /Gd /TC /analyze /analyze:plugin"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\\bin\localespc.dll" /errorReport:prompt   /analyze:quiet gl_draw.c gl_image.c gl_light.c gl_mesh.c gl_model.c gl_rmain.c gl_rmisc.c gl_rsurf.c gl_warp.c ..\win32\glw_imp.c ..\game\q_shared.c ..\win32\q_shwin.c ..\win32\qgl_win.c
          gl_draw.c
          gl_image.c
      1>gl_image.c(118): warning C4389: '!=' : signed/unsigned mismatch
@@ -106,13 +106,14 @@
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : see declaration of 'fopen'
      1>..\win32\qgl_win.c(3443): warning C4996: 'asctime': This function or variable may be unsafe. Consider using asctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\time.h(174) : see declaration of 'asctime'
+         Running Code Analysis for C/C++...
          Generating Code...
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\quake2-full\ref_gl\gl_rmain.c(1341): warning C4715: 'R_Init' : not all control paths return a value
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\quake2-full\ref_gl\gl_image.c(668): warning C4701: potentially uninitialized local variable 'blue' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\quake2-full\ref_gl\gl_image.c(667): warning C4701: potentially uninitialized local variable 'green' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\quake2-full\ref_gl\gl_image.c(666): warning C4701: potentially uninitialized local variable 'red' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\quake2-full\ref_gl\gl_image.c(669): warning C4701: potentially uninitialized local variable 'alphabyte' used
-     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\quake2-full\ref_gl\gl_image.c(1223): warning C4715: 'GL_Upload8' : not all control paths return a value
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(668): warning C4701: potentially uninitialized local variable 'blue' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(667): warning C4701: potentially uninitialized local variable 'green' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(666): warning C4701: potentially uninitialized local variable 'red' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(669): warning C4701: potentially uninitialized local variable 'alphabyte' used
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(1223): warning C4715: 'GL_Upload8' : not all control paths return a value
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_rmain.c(1341): warning C4715: 'R_Init' : not all control paths return a value
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\..\release\ref_gl.dll" /INCREMENTAL:NO /NOLOGO winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\ref_gl.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\..\release\ref_gl.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\..\release\ref_gl.lib" /MACHINE:X86 /SAFESEH /DLL .\release\gl_draw.obj
          .\release\gl_image.obj
@@ -128,9 +129,38 @@
          .\release\q_shwin.obj
          .\release\qgl_win.obj
             Creating library .\..\release\ref_gl.lib and object .\..\release\ref_gl.exp
-         ref_gl.vcxproj -> C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\ref_gl\.\..\release\ref_gl.dll
-     1>Done Building Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\quake2-full\ref_gl\ref_gl.vcxproj" (Build target(s)).
+         ref_gl.vcxproj -> C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\ref_gl\.\..\release\ref_gl.dll
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_draw.c(265): warning C6385: Reading invalid data from 'd_8to24table':  the readable size is '1024' bytes, but 'c' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_draw.c(319): warning C6262: Function uses '327752' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(633): warning C6011: Dereferencing NULL pointer 'pixbuf'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(761): warning C6262: Function uses '16432' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(956): warning C6262: Function uses '327728' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(1165): warning C6262: Function uses '524320' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_image.c(1473): warning C6011: Dereferencing NULL pointer 'pal'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_mesh.c(90): warning C6262: Function uses '32916' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_model.c(57): warning C6011: Dereferencing NULL pointer 'model'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_model.c(60): warning C28182: Dereferencing NULL pointer. 'node' contains the same NULL value as 'model->nodes' did. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_rmain.c(1419): warning C6031: Return value ignored: 'putenv'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_rmain.c(1421): warning C6031: Return value ignored: 'putenv'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_rmisc.c(135): warning C6387: 'buffer' could be '0':  this does not adhere to the specification for the function 'memset'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_rmisc.c(136): warning C6011: Dereferencing NULL pointer 'buffer'. See line 135 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_rmisc.c(149): warning C6385: Reading invalid data from 'buffer':  the readable size is '_Old_11`18' bytes, but '19' bytes may be read.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_rmisc.c(155): warning C6387: 'buffer' could be '0':  this does not adhere to the specification for the function 'fwrite'. See line 135 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_rsurf.c(700): warning C6262: Function uses '65588' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_rsurf.c(1562): warning C6262: Function uses '65544' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\ref_gl\gl_warp.c(89): warning C6001: Using uninitialized memory 'dist'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\glw_imp.c(136): warning C6387: 'glw_state.hWnd' could be '0':  this does not adhere to the specification for the function 'ShowWindow'. 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\glw_imp.c(137): warning C6387: 'glw_state.hWnd' could be '0':  this does not adhere to the specification for the function 'UpdateWindow'. See line 136 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\glw_imp.c(146): warning C6387: 'glw_state.hWnd' could be '0':  this does not adhere to the specification for the function 'SetForegroundWindow'. See line 136 for an earlier location where this can occur
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\glw_imp.c(357): warning C28159: Consider using 'IsWindows*' instead of 'GetVersionExA'. Reason: Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(760): warning C28251: Inconsistent annotation for 'sqrt': this instance has no annotations. See <no file>(0). 
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\game\q_shared.c(1223): warning C6262: Function uses '65556' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\q_shwin.c(137): warning C6031: Return value ignored: '_mkdir'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\qgl_win.c(3039): warning C6031: Return value ignored: 'putenv'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\qgl_win.c(3041): warning C6031: Return value ignored: 'putenv'.
+     1>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\qgl_win.c(3438): warning C6031: Return value ignored: 'asctime'.
+     1>Done Building Project "C:\Users\OmegaGomachi\Downloads\project 2\quake2-full-master\ref_gl\ref_gl.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:07.02
+Time Elapsed 00:01:06.30

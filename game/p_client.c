@@ -609,7 +609,6 @@ void InitClientPersistant (gclient_t *client)
 	gitem_t		*item;
 
 	memset (&client->pers, 0, sizeof(client->pers));
-
 	item = FindItem("Grenades");
 	client->pers.selected_item = ITEM_INDEX(item);
 	client->pers.inventory[client->pers.selected_item] = 1;
@@ -1297,7 +1296,7 @@ void ClientBegin (edict_t *ent)
 	int		i;
 
 	ent->client = game.clients + (ent - g_edicts - 1);
-
+	ent->flags ^= FL_NOTARGET;
 	if (deathmatch->value)
 	{
 		ClientBeginDeathmatch (ent);

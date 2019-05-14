@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DEFECTS><DEFECT><SFA><FILEPATH>c:\users\omegagomachi\downloads\project 2\quake2-full-master\client\</FILEPATH><FILENAME>cl_view.c</FILENAME><LINE>339</LINE><COLUMN>8</COLUMN></SFA><DEFECTCODE>6031</DEFECTCODE><DESCRIPTION>Return value ignored: 'sscanf'.</DESCRIPTION><FUNCTION>CL_PrepRefresh</FUNCTION><DECORATED>CL_PrepRefresh</DECORATED><FUNCLINE>248</FUNCLINE><PATH/></DEFECT></DEFECTS>

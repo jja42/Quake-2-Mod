@@ -395,36 +395,38 @@ void fire_blaster (edict_t *self, vec3_t start, vec3_t dir, int damage, int spee
 fire_grenade
 =================
 */
+qboolean spawn = true;
 
 static void Grenade_Touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *surf)
 {
+	char *s;
+	edict_t	*pokemon;
 	if (other == ent->owner)
 		return;
 
-	if (surf)
+	if (surf && spawn)
 	{
-		SP_monster_soldier_light(ent);
-		ent->monsterinfo.aiflags |= AI_GOOD_GUY;
-	
-	}
-
-	if (!other->takedamage)
-	{
-		if (ent->spawnflags & 1)
-		{
-			if (random() > 0.5)
-				gi.sound (ent, CHAN_VOICE, gi.soundindex ("weapons/hgrenb1a.wav"), 1, ATTN_NORM, 0);
-			else
-				gi.sound (ent, CHAN_VOICE, gi.soundindex ("weapons/hgrenb2a.wav"), 1, ATTN_NORM, 0);
-		}
-		else
-		{
-			gi.sound (ent, CHAN_VOICE, gi.soundindex ("weapons/grenlb1b.wav"), 1, ATTN_NORM, 0);
-		}
+		vec3_t start;
+		VectorSet(start, ent->s.origin[0], ent->s.origin[1], 55);
+		spawn = false;
+		pokemon = G_Spawn();
+		VectorCopy(start, pokemon->s.origin);
+		SP_monster_soldier_light(pokemon);
+		pokemon->monsterinfo.aiflags |= AI_GOOD_GUY;
+		pokemon->monsterinfo.aiflags |= AI_POKEMON;
+		G_FreeEdict(ent);
 		return;
 	}
-
-	ent->enemy = other;
+	
+	if (other->takedamage){
+		if (other->monsterinfo.aiflags & AI_POKEMON)
+		{
+			gi.cprintf(ent->owner, PRINT_HIGH, "Touched!", s);
+			spawn = true;
+			other->die(other, ent, ent, 0, ent->s.origin);
+			G_FreeEdict(ent);
+		}
+	}
 }
 
 void fire_grenade (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int speed, float timer, float damage_radius)
@@ -479,8 +481,6 @@ void fire_grenade2 (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int 
 	grenade->s.effects |= EF_GRENADE;
 	VectorClear (grenade->mins);
 	VectorClear (grenade->maxs);
-	VectorSet(grenade->mins, -16, -16, -24);
-	VectorSet(grenade->maxs, 16, 16, 32);
 	grenade->s.modelindex = gi.modelindex ("models/objects/grenade2/tris.md2");
 	grenade->owner = self;
 	grenade->touch = Grenade_Touch;
@@ -488,6 +488,10 @@ void fire_grenade2 (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int 
 	grenade->dmg_radius = damage_radius;
 	grenade->classname = "hgrenade";
 	gi.linkentity (grenade);
+	if (spawn){
+		VectorSet(grenade->mins, -32, -32, -48);
+		VectorSet(grenade->maxs, 16, 16, 32);
+	}
 }
 
 

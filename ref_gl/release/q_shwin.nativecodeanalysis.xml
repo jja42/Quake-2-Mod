@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DEFECTS><DEFECT><SFA><FILEPATH>c:\users\omegagomachi\downloads\project 2\quake2-full-master\win32\</FILEPATH><FILENAME>q_shwin.c</FILENAME><LINE>137</LINE><COLUMN>8</COLUMN></SFA><DEFECTCODE>6031</DEFECTCODE><DESCRIPTION>Return value ignored: '_mkdir'.</DESCRIPTION><FUNCTION>Sys_Mkdir</FUNCTION><DECORATED>Sys_Mkdir</DECORATED><FUNCLINE>135</FUNCLINE><PATH/></DEFECT></DEFECTS>
