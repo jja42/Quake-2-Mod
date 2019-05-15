@@ -131,7 +131,7 @@ fire_lead
 This is an internal support routine used for bullet/pellet based weapons.
 =================
 */
-static void fire_lead (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick, int te_impact, int hspread, int vspread, int mod)
+static void fire_lead(edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick, int te_impact, int hspread, int vspread, int mod)
 {
 	trace_t		tr;
 	vec3_t		dir;
@@ -143,96 +143,107 @@ static void fire_lead (edict_t *self, vec3_t start, vec3_t aimdir, int damage, i
 	qboolean	water = false;
 	int			content_mask = MASK_SHOT | MASK_WATER;
 
-	tr = gi.trace (self->s.origin, NULL, NULL, start, self, MASK_SHOT);
-	if (!(tr.fraction < 1.0))
+	tr = gi.trace(self->s.origin, NULL, NULL, start, self, MASK_SHOT);
+	if (!(tr.fraction <  1.0))
 	{
-		vectoangles (aimdir, dir);
-		AngleVectors (dir, forward, right, up);
+		vectoangles(aimdir, dir);
+		AngleVectors(dir, forward, right, up);
 
 		r = crandom()*hspread;
 		u = crandom()*vspread;
-		VectorMA (start, 8192, forward, end);
-		VectorMA (end, r, right, end);
-		VectorMA (end, u, up, end);
+		VectorMA(start, 8192, forward, end);
+		VectorMA(end, r, right, end);
+		VectorMA(end, u, up, end);
 
-		if (gi.pointcontents (start) & MASK_WATER)
+		if (gi.pointcontents(start) &  MASK_WATER)
 		{
 			water = true;
-			VectorCopy (start, water_start);
+			VectorCopy(start, water_start);
 			content_mask &= ~MASK_WATER;
 		}
 
-		tr = gi.trace (start, NULL, NULL, end, self, content_mask);
+		tr = gi.trace(start, NULL, NULL, end, self, content_mask);
 
 		// see if we hit water
-		if (tr.contents & MASK_WATER)
+		if (tr.contents &  MASK_WATER)
 		{
 			int		color;
 
 			water = true;
-			VectorCopy (tr.endpos, water_start);
+			VectorCopy(tr.endpos, water_start);
 
-			if (!VectorCompare (start, tr.endpos))
+			if (!VectorCompare(start, tr.endpos))
 			{
-				if (tr.contents & CONTENTS_WATER)
+				if (tr.contents &  CONTENTS_WATER)
 				{
 					if (strcmp(tr.surface->name, "*brwater") == 0)
 						color = SPLASH_BROWN_WATER;
 					else
 						color = SPLASH_BLUE_WATER;
 				}
-				else if (tr.contents & CONTENTS_SLIME)
+				else if (tr.contents &  CONTENTS_SLIME)
 					color = SPLASH_SLIME;
-				else if (tr.contents & CONTENTS_LAVA)
+				else if (tr.contents &  CONTENTS_LAVA)
 					color = SPLASH_LAVA;
 				else
 					color = SPLASH_UNKNOWN;
 
 				if (color != SPLASH_UNKNOWN)
 				{
-					gi.WriteByte (svc_temp_entity);
-					gi.WriteByte (TE_SPLASH);
-					gi.WriteByte (8);
-					gi.WritePosition (tr.endpos);
-					gi.WriteDir (tr.plane.normal);
-					gi.WriteByte (color);
-					gi.multicast (tr.endpos, MULTICAST_PVS);
+					gi.WriteByte(svc_temp_entity);
+					gi.WriteByte(TE_SPLASH);
+					gi.WriteByte(8);
+					gi.WritePosition(tr.endpos);
+					gi.WriteDir(tr.plane.normal);
+					gi.WriteByte(color);
+					gi.multicast(tr.endpos, MULTICAST_PVS);
 				}
 
 				// change bullet's course when it enters water
-				VectorSubtract (end, start, dir);
-				vectoangles (dir, dir);
-				AngleVectors (dir, forward, right, up);
-				r = crandom()*hspread*2;
-				u = crandom()*vspread*2;
-				VectorMA (water_start, 8192, forward, end);
-				VectorMA (end, r, right, end);
-				VectorMA (end, u, up, end);
+				VectorSubtract(end, start, dir);
+				vectoangles(dir, dir);
+				AngleVectors(dir, forward, right, up);
+				r = crandom()*hspread * 2;
+				u = crandom()*vspread * 2;
+				VectorMA(water_start, 8192, forward, end);
+				VectorMA(end, r, right, end);
+				VectorMA(end, u, up, end);
 			}
 
 			// re-trace ignoring water this time
-			tr = gi.trace (water_start, NULL, NULL, end, self, MASK_SHOT);
+			tr = gi.trace(water_start, NULL, NULL, end, self, MASK_SHOT);
 		}
 	}
 
 	// send gun puff / flash
-	if (!((tr.surface) && (tr.surface->flags & SURF_SKY)))
+	if (!((tr.surface) &&  (tr.surface->flags &  SURF_SKY)))
 	{
 		if (tr.fraction < 1.0)
 		{
 			if (tr.ent->takedamage)
 			{
-				T_Damage (tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, damage, kick, DAMAGE_BULLET, mod);
+				if (tr.ent->monsterinfo.aiflags & AI_POKEMON){
+					vec3_t f;
+					vec3_t r;
+					AngleVectors(tr.ent->s.angles, f, r, NULL);
+					fire_shotgun(tr.ent, tr.ent->s.origin, f, damage, kick, hspread, vspread, 12, 2);
+					return;
+				}
+				if (Q_stricmp(tr.ent->type, "grass") == 0)
+					T_Damage(tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, damage * 10, kick, DAMAGE_BULLET, mod);
+				else{
+				T_Damage(tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, damage, kick, DAMAGE_BULLET, mod);
 			}
+		}
 			else
 			{
-				if (strncmp (tr.surface->name, "sky", 3) != 0)
+				if (strncmp(tr.surface->name, "sky", 3) != 0)
 				{
-					gi.WriteByte (svc_temp_entity);
-					gi.WriteByte (te_impact);
-					gi.WritePosition (tr.endpos);
-					gi.WriteDir (tr.plane.normal);
-					gi.multicast (tr.endpos, MULTICAST_PVS);
+					gi.WriteByte(svc_temp_entity);
+					gi.WriteByte(te_impact);
+					gi.WritePosition(tr.endpos);
+					gi.WriteDir(tr.plane.normal);
+					gi.multicast(tr.endpos, MULTICAST_PVS);
 
 					if (self->client)
 						PlayerNoise(self, tr.endpos, PNOISE_IMPACT);
@@ -246,24 +257,25 @@ static void fire_lead (edict_t *self, vec3_t start, vec3_t aimdir, int damage, i
 	{
 		vec3_t	pos;
 
-		VectorSubtract (tr.endpos, water_start, dir);
-		VectorNormalize (dir);
-		VectorMA (tr.endpos, -2, dir, pos);
-		if (gi.pointcontents (pos) & MASK_WATER)
-			VectorCopy (pos, tr.endpos);
+		VectorSubtract(tr.endpos, water_start, dir);
+		VectorNormalize(dir);
+		VectorMA(tr.endpos, -2, dir, pos);
+		if (gi.pointcontents(pos) &  MASK_WATER)
+			VectorCopy(pos, tr.endpos);
 		else
-			tr = gi.trace (pos, NULL, NULL, water_start, tr.ent, MASK_WATER);
+			tr = gi.trace(pos, NULL, NULL, water_start, tr.ent, MASK_WATER);
 
-		VectorAdd (water_start, tr.endpos, pos);
-		VectorScale (pos, 0.5, pos);
+		VectorAdd(water_start, tr.endpos, pos);
+		VectorScale(pos, 0.5, pos);
 
-		gi.WriteByte (svc_temp_entity);
-		gi.WriteByte (TE_BUBBLETRAIL);
-		gi.WritePosition (water_start);
-		gi.WritePosition (tr.endpos);
-		gi.multicast (pos, MULTICAST_PVS);
+		gi.WriteByte(svc_temp_entity);
+		gi.WriteByte(TE_BUBBLETRAIL);
+		gi.WritePosition(water_start);
+		gi.WritePosition(tr.endpos);
+		gi.multicast(pos, MULTICAST_PVS);
 	}
 }
+
 
 
 /*
@@ -294,7 +306,6 @@ void fire_shotgun (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int k
 	for (i = 0; i < count; i++)
 		fire_lead (self, start, aimdir, damage, kick, TE_SHOTGUN, hspread, vspread, mod);
 }
-edict_t *select = NULL;
 
 /*
 =================
@@ -321,18 +332,12 @@ void blaster_touch (edict_t *self, edict_t *other, cplane_t *plane, csurface_t *
 	if (other->takedamage)
 	{
 		if (other->monsterinfo.aiflags & AI_POKEMON){
-			select = other;
-			gi.cprintf(self->owner, PRINT_HIGH, "SELECTED", s);
-		}
-		if (other->svflags & SVF_MONSTER){
-				G_FreeEdict(self);
-				gi.cprintf(self->owner, PRINT_HIGH, "TARGETTED", s);
-				vec3_t forward;
-				vec3_t right;
-				AngleVectors(self->s.angles, forward, right, NULL);
-				fire_blaster(select, select->s.origin, forward, 100, 1000, 1, false);
-				select = NULL;
-				return;
+			G_FreeEdict(self);
+			vec3_t forward;
+			vec3_t right;
+			AngleVectors(other->s.angles, forward, right, NULL);
+			fire_blaster(other, other->s.origin, forward, 100, 10000, 1, false);
+			return;
 			}
 		}
 	else
@@ -365,118 +370,10 @@ void blaster_attack(edict_t *self, edict_t *other, cplane_t *plane, csurface_t *
 
 	if (other->takedamage)
 	{
-			T_Damage(other, self, self->owner, self->velocity, self->s.origin, plane->normal, self->dmg, 1, DAMAGE_ENERGY, MOD_BLASTER);
-		}
-	else
-	{
-		gi.WriteByte(svc_temp_entity);
-		gi.WriteByte(TE_BLASTER);
-		gi.WritePosition(self->s.origin);
-		if (!plane)
-			gi.WriteDir(vec3_origin);
+		if (Q_stricmp(other->type, "water") == 0)
+			T_Damage(other, self, self->owner, self->velocity, self->s.origin, plane->normal, self->dmg * 10, 1, DAMAGE_ENERGY, MOD_BLASTER);
 		else
-			gi.WriteDir(plane->normal);
-		gi.multicast(self->s.origin, MULTICAST_PVS);
-	}
-
-	G_FreeEdict(self);
-}
-
-void blaster_attack_1(edict_t *self, edict_t *other, cplane_t *plane, csurface_t *surf)
-{
-	char *s;
-	if (other == self->owner)
-		return;
-
-	if (surf && (surf->flags & SURF_SKY))
-	{
-		G_FreeEdict(self);
-		return;
-	}
-
-
-	if (other->takedamage)
-	{
-		if (Q_stricmp(other->type, "grass") == 0){
-			T_Damage(other, self, self->owner, self->velocity, self->s.origin, plane->normal, self->dmg * 2, 1, DAMAGE_ENERGY, MOD_BLASTER);
-		}
-		else{
 			T_Damage(other, self, self->owner, self->velocity, self->s.origin, plane->normal, self->dmg, 1, DAMAGE_ENERGY, MOD_BLASTER);
-		}
-	}
-	else
-	{
-		gi.WriteByte(svc_temp_entity);
-		gi.WriteByte(TE_BLASTER);
-		gi.WritePosition(self->s.origin);
-		if (!plane)
-			gi.WriteDir(vec3_origin);
-		else
-			gi.WriteDir(plane->normal);
-		gi.multicast(self->s.origin, MULTICAST_PVS);
-	}
-
-	G_FreeEdict(self);
-}
-
-void blaster_attack_2(edict_t *self, edict_t *other, cplane_t *plane, csurface_t *surf)
-{
-	char *s;
-	if (other == self->owner)
-		return;
-
-	if (surf && (surf->flags & SURF_SKY))
-	{
-		G_FreeEdict(self);
-		return;
-	}
-
-
-	if (other->takedamage)
-	{
-		if (Q_stricmp(other->type, "water") == 0){
-			T_Damage(other, self, self->owner, self->velocity, self->s.origin, plane->normal, self->dmg * 2, 1, DAMAGE_ENERGY, MOD_BLASTER);
-		}
-		else{
-			T_Damage(other, self, self->owner, self->velocity, self->s.origin, plane->normal, self->dmg, 1, DAMAGE_ENERGY, MOD_BLASTER);
-		}
-	}
-	else
-	{
-		gi.WriteByte(svc_temp_entity);
-		gi.WriteByte(TE_BLASTER);
-		gi.WritePosition(self->s.origin);
-		if (!plane)
-			gi.WriteDir(vec3_origin);
-		else
-			gi.WriteDir(plane->normal);
-		gi.multicast(self->s.origin, MULTICAST_PVS);
-	}
-
-	G_FreeEdict(self);
-}
-
-void blaster_attack_3(edict_t *self, edict_t *other, cplane_t *plane, csurface_t *surf)
-{
-	char *s;
-	if (other == self->owner)
-		return;
-
-	if (surf && (surf->flags & SURF_SKY))
-	{
-		G_FreeEdict(self);
-		return;
-	}
-
-
-	if (other->takedamage)
-	{
-		if (Q_stricmp(other->type, "fire") == 0){
-			T_Damage(other, self, self->owner, self->velocity, self->s.origin, plane->normal, self->dmg * 2, 1, DAMAGE_ENERGY, MOD_BLASTER);
-		}
-		else{
-			T_Damage(other, self, self->owner, self->velocity, self->s.origin, plane->normal, self->dmg, 1, DAMAGE_ENERGY, MOD_BLASTER);
-		}
 	}
 	else
 	{
@@ -524,18 +421,6 @@ void fire_blaster (edict_t *self, vec3_t start, vec3_t dir, int damage, int spee
 	bolt->touch = blaster_attack;
 	if (self->client){
 		bolt->touch = blaster_touch;
-	}
-	if (self->monsterinfo.aiflags & AI_ATTACK1){
-		bolt->touch = blaster_attack_1;
-		self->monsterinfo.aiflags ^= AI_ATTACK1;
-	}
-	if (self->monsterinfo.aiflags & AI_ATTACK2){
-		bolt->touch = blaster_attack_2;
-		self->monsterinfo.aiflags ^= AI_ATTACK2;
-	}
-	if (self->monsterinfo.aiflags & AI_ATTACK3){
-		bolt->touch = blaster_attack_3;
-		self->monsterinfo.aiflags ^= AI_ATTACK3;
 	}
 	bolt->nextthink = level.time + 2;
 	bolt->think = G_FreeEdict;
@@ -782,8 +667,21 @@ void fire_rail (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick
 			else
 				ignore = NULL;
 
-			if ((tr.ent != self) && (tr.ent->takedamage))
-				T_Damage (tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, damage, kick, 0, MOD_RAILGUN);
+			if ((tr.ent != self) && (tr.ent->takedamage)){
+				if (self->client){
+					if (tr.ent->monsterinfo.aiflags & AI_POKEMON){
+						vec3_t forward;
+						vec3_t right;
+						AngleVectors(tr.ent->s.angles, forward, right, NULL);
+						fire_rail(tr.ent, tr.ent->s.origin, forward, damage, kick);
+					}
+				}
+				if (Q_stricmp(tr.ent->type, "fire") == 0){
+					T_Damage(tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, 100, kick, 0, MOD_RAILGUN);
+				}
+				else
+					T_Damage(tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, 15, kick, 0, MOD_RAILGUN);
+			}
 		}
 
 		VectorCopy (tr.endpos, from);
