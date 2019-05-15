@@ -1,29 +1,28 @@
+Thank you for downloading my mod.
+Here are some quick instructions for setting up and playing this mod.
 
-This is the complete source code for Quake 2, version 3.19, buildable with
-visual C++ 6.0.  The linux version should be buildable, but we haven't
-tested it for the release.
+Setup:
+Place the pokemon folder in this directory "C:\Program Files (x86)\Steam\steamapps\common\Quake 2".
+Place the provided shortcut on your desktop.
+Download and unpack the pak0.zip, placing it in the pokemon folder.
 
-The code is all licensed under the terms of the GPL (gnu public license).  
-You should read the entire license, but the gist of it is that you can do 
-anything you want with the code, including sell your new version.  The catch 
-is that if you distribute new binary versions, you are required to make the 
-entire source code available for free to everyone.
+How to Play:
+First, please use the give all command to gain access to all necessary weapons.
 
-The primary intent of this release is for entertainment and educational 
-purposes, but the GPL does allow commercial exploitation if you obey the 
-full license.  If you want to do something commercial and you just can't bear 
-to have your source changes released, we could still negotiate a separate 
-license agreement (for $$$), but I would encourage you to just live with the 
-GPL.
+The blaster will be used to target enemies with your pokemon.
 
-All of the Q2 data files remain copyrighted and licensed under the 
-original terms, so you cannot redistribute data from the original game, but if 
-you do a true total conversion, you can create a standalone game based on 
-this code.
+Grenades (Pokeballs) spawn a pokemon which can be recalled by hitting it with another pokeball.
 
-Thanks to Robert Duffy for doing the grunt work of building this release.
+Pokemon and monsters alike have types, to see their types use the rocket launcher and shoot them to display a message.
 
-John Carmack
-Id Software
+To have your pokemon use their moves you must target them with your weapons.
 
+Shooting them with your blaster, shotgun, super shotgun and grenade launcher will cause them to use their 1st, 2nd, 3rd and 4th moves respectively.
 
+Moves have names and types that will display in the console when used
+
+Type effectiveness matters some moves are more effective against other types. (Standard Pokemon type conventions)
+
+To help you become a pokemon master you can have your pokemon lock onto enemies by prodding your pokemon with your hyperblaster.
+
+That will make connecting attacks much easier.
