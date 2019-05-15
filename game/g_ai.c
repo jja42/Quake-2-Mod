@@ -347,18 +347,6 @@ void HuntTarget (edict_t *self)
 void FoundTarget (edict_t *self)
 {
 	// let other monsters see this monster for a while
-	if (self->enemy->client)
-	{
-		level.sight_entity = self;
-		level.sight_entity_framenum = level.framenum;
-		level.sight_entity->light_level = 128;
-	}
-	if (!self->monsterinfo.aiflags & AI_GOOD_GUY)
-	self->show_hostile = level.time + 1;		// wake up other monsters
-
-	VectorCopy(self->enemy->s.origin, self->monsterinfo.last_sighting);
-	self->monsterinfo.trail_time = level.time;
-
 	if (!self->combattarget)
 	{
 		HuntTarget (self);
@@ -386,7 +374,6 @@ void FoundTarget (edict_t *self)
 	self->monsterinfo.run (self);
 }
 
-
 /*
 ===========
 FindTarget
@@ -404,44 +391,32 @@ checked each frame.  This means multi player games will have slightly
 slower noticing monsters.
 ============
 */
-qboolean FindTarget (edict_t *self)
+qboolean FindTarget(edict_t *self)
 {
 	edict_t		*client;
 	qboolean	heardit;
 	int			r;
-	char		*s;
 
-	if (self->monsterinfo.aiflags & AI_GOOD_GUY)
+	if (self->monsterinfo.aiflags &  AI_GOOD_GUY)
 	{
-		client = level.sight_entity;
-		if (!client)
+		if (self->monsterinfo.aiflags &  AI_COMBAT_POINT)
 			return false;
-		if (!(client->monsterinfo.aiflags & AI_GOOD_GUY))
-		{
-			gi.cprintf(self->owner, PRINT_HIGH, "ENEMY SEEN!", s);
-			if (client == self->enemy)
-			return true;
-		}
-		else{
-			return false;
-		}
-		self->enemy = client;
-		FoundTarget(self);
+		//FIXME look for monsters?
+		return false;
 	}
-
 	// if we're going to a combat point, just proceed
-	if (self->monsterinfo.aiflags & AI_COMBAT_POINT)
+	if (self->monsterinfo.aiflags &  AI_COMBAT_POINT)
 		return false;
 
-// if the first spawnflag bit is set, the monster will only wake up on
-// really seeing the player, not another monster getting angry or hearing
-// something
+	// if the first spawnflag bit is set, the monster will only wake up on
+	// really seeing the player, not another monster getting angry or hearing
+	// something
 
-// revised behavior so they will wake up if they "see" a player make a noise
-// but not weapon impact/explosion noises
+	// revised behavior so they will wake up if they "see" a player make a noise
+	// but not weapon impact/explosion noises
 
-/*	heardit = false;
-	if ((level.sight_entity_framenum >= (level.framenum - 1)) && !(self->spawnflags & 1) )
+	heardit = false;
+	if ((level.sight_entity_framenum >= (level.framenum - 1)) &&  !(self->spawnflags & 1))
 	{
 		client = level.sight_entity;
 		if (client->enemy == self->enemy)
@@ -454,7 +429,7 @@ qboolean FindTarget (edict_t *self)
 		client = level.sound_entity;
 		heardit = true;
 	}
-	else if (!(self->enemy) && (level.sound2_entity_framenum >= (level.framenum - 1)) && !(self->spawnflags & 1) )
+	else if (!(self->enemy) &&  (level.sound2_entity_framenum >= (level.framenum - 1)) &&  !(self->spawnflags & 1))
 	{
 		client = level.sound2_entity;
 		heardit = true;
@@ -473,36 +448,83 @@ qboolean FindTarget (edict_t *self)
 	if (client == self->enemy)
 		return true;	// JDC false;
 
-	if (client->monsterinfo.aiflags & AI_POKEMON){
-		self->enemy = client;
-	}
-	else if (client->client)
+	if (client->client)
 	{
-		if (client->flags & FL_NOTARGET)
+		if (client->flags &  FL_NOTARGET)
 			return false;
 	}
-
-	else if (client->svflags & SVF_MONSTER)
+	else if (client->svflags &  SVF_MONSTER)
 	{
-			if (!client->enemy)
-				return false;
-			if (client->enemy->flags & FL_NOTARGET)
-				return false;
+		if (!client->enemy)
+			return false;
+		if (client->enemy->flags &  FL_NOTARGET)
+			return false;
 	}
 	else if (heardit)
 	{
-		if (client->owner->flags & FL_NOTARGET)
+		if (client->owner->flags &  FL_NOTARGET)
 			return false;
 	}
-	else {
+	else
 		return false;
+
+	if (!heardit)
+	{
+		r = range(self, client);
+
+		if (r == RANGE_FAR)
+			return false;
+
+		// this is where we would check invisibility
+
+		// is client in an spot too dark to be seen?
+		if (client->light_level <= 5)
+			return false;
+
+		if (!visible(self, client))
+		{
+			return false;
+		}
+
+		if (r == RANGE_NEAR)
+		{
+			if (client->show_hostile <  level.time &&  !infront(self, client))
+			{
+				return false;
+			}
+		}
+		else if (r == RANGE_MID)
+		{
+			if (!infront(self, client))
+			{
+				return false;
+			}
+		}
+
+		self->enemy = client;
+
+		if (strcmp(self->enemy->classname, "player_noise") != 0)
+		{
+			self->monsterinfo.aiflags &= ~AI_SOUND_TARGET;
+
+			if (!self->enemy->client)
+			{
+				self->enemy = self->enemy->enemy;
+				if (!self->enemy->client)
+				{
+					self->enemy = NULL;
+					return false;
+				}
+			}
+		}
 	}
-		
+	else	// heardit
+	{
 		vec3_t	temp;
 
 		if (self->spawnflags & 1)
 		{
-			if (!visible (self, client))
+			if (!visible(self, client))
 				return false;
 		}
 		else
@@ -510,8 +532,8 @@ qboolean FindTarget (edict_t *self)
 			if (!gi.inPHS(self->s.origin, client->s.origin))
 				return false;
 		}
-		
-		VectorSubtract (client->s.origin, self->s.origin, temp);
+
+		VectorSubtract(client->s.origin, self->s.origin, temp);
 
 		if (VectorLength(temp) > 1000)	// too far to hear
 		{
@@ -520,27 +542,27 @@ qboolean FindTarget (edict_t *self)
 
 		// check area portals - if they are different and not connected then we can't hear it
 		if (client->areanum != self->areanum)
-			if (!gi.AreasConnected(self->areanum, client->areanum))
-				return false;
+		if (!gi.AreasConnected(self->areanum, client->areanum))
+			return false;
 
 		self->ideal_yaw = vectoyaw(temp);
-		M_ChangeYaw (self);
+		M_ChangeYaw(self);
 
 		// hunt the sound for a bit; hopefully find the real player
 		self->monsterinfo.aiflags |= AI_SOUND_TARGET;
 		self->enemy = client;
+	}
 
-//
-// got one
-//
-	FoundTarget (self);
+	//
+	// got one
+	//
+	FoundTarget(self);
 
-	if (!(self->monsterinfo.aiflags & AI_SOUND_TARGET) && (self->monsterinfo.sight))
-		self->monsterinfo.sight (self, self->enemy);
-*/
+	if (!(self->monsterinfo.aiflags &  AI_SOUND_TARGET) &&  (self->monsterinfo.sight))
+		self->monsterinfo.sight(self, self->enemy);
+
 	return true;
 }
-
 
 //=============================================================================
 

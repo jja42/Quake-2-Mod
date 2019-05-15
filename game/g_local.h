@@ -140,6 +140,9 @@ typedef enum
 #define AI_MEDIC				0x00002000
 #define AI_RESURRECTING			0x00004000
 #define AI_POKEMON				0x00008000
+#define AI_ATTACK1				0x00010000
+#define AI_ATTACK2				0x00020000
+#define AI_ATTACK3				0x00040000
 
 //monster attack state
 #define AS_STRAIGHT				1
@@ -1020,6 +1023,8 @@ struct edict_s
 	char		*deathtarget;
 	char		*combattarget;
 	edict_t		*target_ent;
+
+	char		*type;
 
 	float		speed, accel, decel;
 	vec3_t		movedir;

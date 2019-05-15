@@ -1197,22 +1197,21 @@ void soldier_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int dama
 // SPAWN
 //
 
-void SP_monster_soldier_x (edict_t *self)
+void SP_monster_soldier_x(edict_t *self)
 {
-	self->s.modelindex = gi.modelindex ("models/monsters/soldier/tris.md2");
+	float r = random();
+	self->s.modelindex = gi.modelindex("models/monsters/soldier/tris.md2");
 	self->monsterinfo.scale = MODEL_SCALE;
-	VectorSet (self->mins, -16, -16, -24);
-	VectorSet (self->maxs, 16, 16, 32);
+	VectorSet(self->mins, -16, -16, -24);
+	VectorSet(self->maxs, 16, 16, 32);
 	self->movetype = MOVETYPE_STEP;
 	self->solid = SOLID_BBOX;
-
 	sound_idle =	gi.soundindex ("soldier/solidle1.wav");
 	sound_sight1 =	gi.soundindex ("soldier/solsght1.wav");
 	sound_sight2 =	gi.soundindex ("soldier/solsrch1.wav");
 	sound_cock =	gi.soundindex ("infantry/infatck3.wav");
 
 	self->mass = 100;
-
 	self->pain = soldier_pain;
 	self->die = soldier_die;
 
@@ -1229,6 +1228,26 @@ void SP_monster_soldier_x (edict_t *self)
 	self->monsterinfo.stand (self);
 
 	walkmonster_start (self);
+	if (r > .75){
+		self->type = "water";
+		r = random();
+		return;
+	}
+	if (r < .75 && r > .5){
+		self->type = "fire";
+		r = random();
+		return;
+	}
+	if (r < .5 && r > .25){
+		self->type = "grass";
+		r = random();
+		return;
+	}
+	else{
+		self->type = "normal";
+		r = random();
+		return;
+	}
 }
 
 

@@ -609,7 +609,7 @@ void InitClientPersistant (gclient_t *client)
 	gitem_t		*item;
 
 	memset (&client->pers, 0, sizeof(client->pers));
-	item = FindItem("Grenades");
+	item = FindItem("Blaster");
 	client->pers.selected_item = ITEM_INDEX(item);
 	client->pers.inventory[client->pers.selected_item] = 1;
 	client->pers.weapon = item;
@@ -1293,10 +1293,9 @@ to be placed into the game.  This will happen every level load.
 */
 void ClientBegin (edict_t *ent)
 {
-	int		i;
+	ent->flags ^= FL_NOTARGET;
 
 	ent->client = game.clients + (ent - g_edicts - 1);
-	ent->flags ^= FL_NOTARGET;
 	if (deathmatch->value)
 	{
 		ClientBeginDeathmatch (ent);
@@ -1311,7 +1310,7 @@ void ClientBegin (edict_t *ent)
 		// connecting to the server, which is different than the
 		// state when the game is saved, so we need to compensate
 		// with deltaangles
-		for (i=0 ; i<3 ; i++)
+		for (int i=0 ; i<3 ; i++)
 			ent->client->ps.pmove.delta_angles[i] = ANGLE2SHORT(ent->client->ps.viewangles[i]);
 	}
 	else
